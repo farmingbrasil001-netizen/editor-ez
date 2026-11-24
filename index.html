@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador Visual de HTML - Multi-Cenas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PALETA ESQUERDA -->
+  <div class="paleta">
+    <h3>Adicionar</h3>
+    <button onclick="add('button')">🔘 Botão</button>
+    <button onclick="add('text')">📝 Texto</button>
+    <button onclick="add('label')">🏷️ Label</button>
+    <button onclick="add('input')">⌨️ Input</button>
+    <button onclick="add('img')">🖼️ Imagem</button>
+    <button onclick="add('div')">📦 Div</button>
+
+    <h3>Cenas</h3>
+    <button onclick="novaCena()">➕ Nova cena</button>
+    <div id="cenas-lista" class="cenas-lista"></div>
+
+    <h3>Projeto</h3>
+    <button onclick="baixarHTML()">⬇️ Baixar .html</button>
+    <button onclick="baixarProjeto()">💾 Salvar projeto (JSON)</button>
+    <button onclick="document.getElementById('import-input').click()">📂 Abrir projeto</button>
+    <input type="file" id="import-input" accept=".json" style="display:none" onchange="importarProjeto(event)">
+
+    <h3>Ações</h3>
+    <button onclick="limparCena()">🗑️ Limpar cena</button>
+    <button onclick="limparTudo()">💥 Limpar tudo</button>
+  </div>
+
+  <!-- CANVAS CENTRAL -->
+  <div class="canvas-wrap">
+    <div class="toolbar">
+      <span>💡 Arraste os elementos. Clique para editar. <span class="cena-nome" id="toolbar-cena"></span></span>
+    </div>
+    <div id="canvas"></div>
+  </div>
+
+  <!-- INSPETOR DIREITO -->
+  <div class="inspetor">
+    <h3>Propriedades</h3>
+    <div id="inspetor-conteudo">
+      <p style="font-size:12px;color:#888;">Selecione um elemento no canvas.</p>
+    </div>
+
+    <h3>Código gerado (cena atual)</h3>
+    <textarea id="codigo" readonly></textarea>
+  </div>
+
+  <!-- LIGAÇÃO COM O JS (deve ser o último) -->
+  <script src="app.js"></script>
+</body>
+</html>
